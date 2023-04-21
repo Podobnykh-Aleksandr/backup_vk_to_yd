@@ -1,4 +1,5 @@
 import requests
+from tqdm import tqdm
 
 
 # token = ''
@@ -22,8 +23,10 @@ class YandexDisk:
         return response
 
     def link_url_get_upload_link(self, name_file, link_url):
-        upload_url = "https://cloud-api.yandex.net/v1/disk/resources/upload"
-        headers = self.get_headers()
-        params = {"path": f'{self.name_folder}/{name_file}', "url": link_url}
-        response = requests.post(upload_url, headers=headers, params=params)
-        return response
+        for _ in tqdm(range(100)):
+            upload_url = "https://cloud-api.yandex.net/v1/disk/resources/upload"
+            headers = self.get_headers()
+            params = {"path": f'{self.name_folder}/{name_file}', "url": link_url}
+            response = requests.post(upload_url, headers=headers, params=params)
+            return response
+        pass

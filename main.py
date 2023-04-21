@@ -33,6 +33,5 @@ if __name__ == '__main__':
     akk_ya_1 = ya_disk.YandexDisk(os.getenv('YA_TOKEN'), input('Введите имя папки что бы создать бекап: '))
     print(f"Обнаружено {akk_vk_1.get_photos()['response']['count']} фотографий")
     akk_vk_1.sort_photos(int(input('Введите количество фото для загрузки: ')))
-
-    get_vk_to_ya(akk_ya_1) # отдаём в метод имя папки!
-    saves_info_photos(akk_vk_1) # отдаём введённый ид пользхователя
+    get_vk_to_ya(akk_ya_1)
+    saves_info_photos(akk_vk_1)

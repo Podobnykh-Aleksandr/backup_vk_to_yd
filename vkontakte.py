@@ -3,6 +3,7 @@ import datetime as dt
 
 # token = ''
 
+
 class Vkontakte:
     def __init__(self, token, uni_id, quantity=0, ver='5.131'):
         self.token = token
@@ -52,7 +53,7 @@ class Vkontakte:
                         dict_photos[i['id']] = [i['likes']['count'], i['date'], j['type'], j['height'] * j['width'], j['url']]
         return dict_photos
 
-    @staticmethod # стандартный перевод времени в нормальный формат
+    @staticmethod
     def date_convert(unix_time):
         date = dt.datetime.fromtimestamp(unix_time).strftime('%Y-%m-%d_%H:%M:%S')
         return date
